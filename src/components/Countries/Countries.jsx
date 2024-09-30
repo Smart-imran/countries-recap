@@ -15,9 +15,10 @@ const Countries = () => {
     },[])
 
     return (
-        <div>
-            <h3 className="p-10 text-5xl">Countries: {countries.length} </h3>
-            {
+        <div >
+             <h3 className="p-10 text-5xl">Countries: {countries.length} </h3>
+           <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+           {
                 countries.map(country => <Country
                 
                 countryparam={country} key={country.cca3}
@@ -25,6 +26,8 @@ const Countries = () => {
                 
                 ></Country>)
             }
+           </div>
+           
         </div>
     );
 };

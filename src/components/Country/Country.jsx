@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const Country = ({ countryparam , handlevisitedCountries }) => {
+const Country = ({ countryparam, handlevisitedCountries, handleVisitedFlags }) => {
 
     //console.log(countryparam)
 
@@ -8,11 +8,13 @@ const Country = ({ countryparam , handlevisitedCountries }) => {
 
     const [visited, setVisited] = useState(false);
 
-    const handleVisited = () =>{
+    const handleVisited = () => {
         setVisited(!visited)
     }
 
     // console.log(handlevisitedCountries);
+
+    // console.log(handleVisitedFlags);
 
     return (
         <div className={`border-4 border-indigo-600 pl-8 rounded-md ${visited ? 'bg-red-600' : ''}`}>
@@ -23,14 +25,25 @@ const Country = ({ countryparam , handlevisitedCountries }) => {
             <p>Area: {area}</p>
             <p className="font-bold">Code: {cca3}</p>
 
+            <div>
 
-            <button onClick={()=>handlevisitedCountries(countryparam)} className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mr-6 ">Mark Visited</button><br />
+                <button onClick={() => handleVisitedFlags(countryparam.flags.png)} className="border-2 p-2 bg-red-500 text-white border-green-600 rounded-md mr-6 ">Visited Flags</button>
 
-            <button onClick={handleVisited} className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mt-4">{visited ? 'visited':'Going'}</button>
+
+
+                <button onClick={() => handlevisitedCountries(countryparam)} className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mr-6 ">Mark Visited</button>
+
+
+
+                <button onClick={handleVisited} className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mt-4">{visited ? 'visited' : 'Going'}</button>
 
                 {
                     visited ? 'I have visited' : 'I want to visited'
                 }
+
+            </div>
+
+
 
         </div>
     );

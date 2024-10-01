@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const Country = ({ countryparam , handlevisitedCountries }) => {
 
-    console.log(countryparam)
+    //console.log(countryparam)
 
     const { name, flags, population, area, cca3 } = countryparam;
 
@@ -12,7 +12,7 @@ const Country = ({ countryparam , handlevisitedCountries }) => {
         setVisited(!visited)
     }
 
-    console.log(handlevisitedCountries);
+    // console.log(handlevisitedCountries);
 
     return (
         <div className={`border-4 border-indigo-600 pl-8 rounded-md ${visited ? 'bg-red-600' : ''}`}>
@@ -24,7 +24,7 @@ const Country = ({ countryparam , handlevisitedCountries }) => {
             <p className="font-bold">Code: {cca3}</p>
 
 
-            <button className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mr-6 ">Mark Visited</button><br />
+            <button onClick={()=>handlevisitedCountries(countryparam)} className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mr-6 ">Mark Visited</button><br />
 
             <button onClick={handleVisited} className="border-2 p-2 bg-indigo-500 text-white border-violet-600 rounded-md mt-4">{visited ? 'visited':'Going'}</button>
 
